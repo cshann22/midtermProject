@@ -19,6 +19,8 @@ function appendTable(data) {
             }
             tr.innerHTML = tr.innerHTML + `<td class="${data.elements[i].category}">${data.elements[i].symbol}</td>
             `;
+            // TODO Seperate out period 6 and 7 group 3 from rest
+
         } while (data.elements[i].group < 18);
 
         console.log(tr.innerHTML);
