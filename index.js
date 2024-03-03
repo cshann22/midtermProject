@@ -13,6 +13,10 @@ function appendTable(data) {
         // }
         do {
             i++;
+            if (data.elements[i].group - 1 != data.elements[i-1].group && data.elements[i].period < 6) {
+                tr.innerHTML = tr.innerHTML + `<td colspan="${data.elements[i].group - data.elements[i-1].group - 1}"></td>
+                `;
+            }
             tr.innerHTML = tr.innerHTML + `<td class="${data.elements[i].category}">${data.elements[i].symbol}</td>
             `;
         } while (data.elements[i].group < 18);
