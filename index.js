@@ -63,6 +63,36 @@ function appendTable(data) {
     console.log(mainContainer.innerHTML);
 }
 
+
+function getInputValue() {
+    let elementName = document.forms["my_form"]["elementName"];
+    let elementNumber = document.forms["my_form"]["elementNumber"];
+    let elementMass = document.forms["my_form"]["elementMass"];
+    let inputElementName = elementName.value;
+    let inputElementNumber = elementNumber.value;
+    let inputElementMass = elementMass.value;
+    fetch("./data.json")
+        .then(response => response.json())
+        .then(myElements => loadElement(myElements));
+    
+    function loadElement(myElements) {
+        var mainContainer = document.getElementById("element");
+        for (var i = 0; i<myElements.elements.length; i++){
+            if (myElements.elements[i].name === inputElementName || 
+                myElements.elements[i].number == inputElementNumber ||
+                (myElements.elements[i].atomic_mass - 1 < inputElementMass && myElements.elements[i].atomic_mass + 1 > inputElementMass)) {
+                    mainContainer.innerHTML = `<br>
+                    <h1>Number ${myElements.elements[i].number}: ${myElements.elements[i].name}</h1> 
+                    Mass: ${myElements.elements[i].atomic_mass} <br>
+                    ${myElements.elements[i].summary} <br>
+                    <img src="${myElements.elements[i].bohr_model_image}" style="width: 160px;" alt="${myElements.elements[i].name}"> <br>`;
+
+            }
+        }
+    }
+}
+
+
 fetch('./data.json')
     .then(function (response) {
         return response.json();

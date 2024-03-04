@@ -66,7 +66,12 @@
 </head>
 <body>
 
-    <!-- TODO make search bars -->
+    <form id="my_form">
+        <p>Element Name: <input type="text" name="elementName" value="Hydrogen"></p>
+        <p>Element Number: <input type="text" name="elementNumber" value="1"></p>
+        <p>Element Mass: <input type="text" name="elementMass" value="1"></p>
+        <button type="button" onclick="getInputValue();">Find Element</button>
+    </form>
 
     <table id="start">
         <tr>
@@ -89,37 +94,9 @@
             <th>17</th>
             <th>18</th>
         </tr>
-        <!-- <tr>
-            <td class="reactive-nonmetal">H</td>
-            <td class="diatomic-nonmetal" colspan="16"></td>
-            <td class="noble-gas">He</td>
-        </tr>
-        <tr>
-            <td class="alkali-metal">Li</td>
-            <td class="alkaline-earth-metal">Be</td>
-            <td class="diatomic-nonmetal" colspan="10"></td>
-            <td class="metalloid">Bo</td>
-            <td class="reactive-nonmetal">C</td>
-            <td class="reactive-nonmetal">N</td>
-            <td class="reactive-nonmetal">O</td>
-            <td class="reactive-nonmetal">F</td>
-            <td class="noble-gas">Ne</td>
-        </tr>
-        <tr>
-            <td class="alkali-metal">Na</td>
-            <td class="alkaline-earth-metal">Mg</td>
-            <td class="diatomic-nonmetal" colspan="10"></td>
-            <td class="post-transition-metal">Al</td>
-            <td class="metalloid">Si</td>
-            <td class="reactive-nonmetal">P</td>
-            <td class="reactive-nonmetal">S</td>
-            <td class="reactive-nonmetal">Cl</td>
-            <td class="noble-gas">Ar</td>
-        </tr>
-        <tr >
-             Rest of them -->
-        
     </table>
+
+    <div id="element"></div>
     <script src="index.js">//Code can go here, overwritten by index.js</script>
 </body>
 </html>
