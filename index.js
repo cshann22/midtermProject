@@ -1,6 +1,8 @@
 function appendTable(data) {
     let mainContainer = document.getElementById("start");
 
+    let extra = [];
+
     for (let i = 0; i < data.elements.length; i++) {
         console.log(data.elements[i]);
         let tr = document.createElement("tr");
@@ -13,8 +15,16 @@ function appendTable(data) {
         // }
         do {
             i++;
-            if (data.elements[i].group - 1 != data.elements[i-1].group && data.elements[i].period < 6) {
+            if (data.elements[i].group == 3 && data.elements[i].period >= 6) {
+                extra.push(data.elements[i]);
+                continue;
+            }
+            else if (data.elements[i].group - 1 != data.elements[i-1].group) {
                 tr.innerHTML = tr.innerHTML + `<td colspan="${data.elements[i].group - data.elements[i-1].group - 1}"></td>
+                `;
+            }
+            else if (data.elements[i].group == 4 && data.elements[i].period >= 6) {
+                tr.innerHTML = tr.innerHTML + `<td></td>
                 `;
             }
             tr.innerHTML = tr.innerHTML + `<td class="${data.elements[i].category}">${data.elements[i].symbol}</td>
@@ -24,11 +34,33 @@ function appendTable(data) {
         } while (data.elements[i].group < 18);
 
         console.log(tr.innerHTML);
+        console.log(extra);
         mainContainer.appendChild(tr);
 
     }
-    console.log(mainContainer.innerHTML);
+    let tr = document.createElement("tr");
+    tr.innerHTML = "<td colspan=\"18\"></td>";
+    mainContainer.appendChild(tr);
+    for (let i = 0; i < extra.length; i++) {
+        let tr = document.createElement("tr");
+        tr.innerHTML = tr.innerHTML + `<td colspan="2"></td>
+        <td class="${extra[i].category}">${extra[i].symbol}</td>
+        `;
+        do {
+            i++;
+            console.log(extra[i]);
 
+            tr.innerHTML = tr.innerHTML + `<td class="${extra[i].category}">${extra[i].symbol}</td>
+            `;
+            if (extra[i].symbol == "Lu" || extra[i].symbol == "Lr") {
+                tr.innerHTML = tr.innerHTML + `<td></td>`
+                break;
+            }
+
+        } while (extra[i].group);
+        mainContainer.appendChild(tr);
+    }
+    console.log(mainContainer.innerHTML);
 }
 
 fetch('./data.json')
