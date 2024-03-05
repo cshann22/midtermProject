@@ -66,11 +66,6 @@ function appendTable(data) {
     
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 23189d419652a1ce36bf6f201d582189a359c5c6
 function getInputValue() {
     let elementName = document.forms["my_form"]["elementName"];
     let elementNumber = document.forms["my_form"]["elementNumber"];
@@ -100,25 +95,7 @@ function getInputValue() {
 }
 
 // These two functions are broken for some reason
-function loadElementFromClick(click) {
-    var mainContainer = document.getElementById("element");
-    mainContainer.innerHTML = `<br>
-    <h1>Number ${click.number}: ${click.name}</h1> 
-    Mass: ${click.atomic_mass} <br>
-    ${click.summary} <br>
-    <img src="${click.bohr_model_image}" style="width: 160px;" alt="${click.name}"> <br>`;
-}
 
-
-function loadButtons(data) {
-    let buttons = [];
-    for (let i = 0; i < 100; i++) {
-        buttons[i] = document.getElementById(`${data.elements[i].symbol}`);
-        console.log(i);
-        buttons[i].addEventListener("click", clickHandler);
-
-    }
-}
 
 
 document.getElementById("start").addEventListener("mouseover", function(event) {
@@ -157,7 +134,6 @@ fetch('./data.json')
     })
     .then(function (data) {
         appendTable(data);
-//        loadButtons(data);   // Commented because event listener doesn't work
     })
     .catch(function (err) {
         console.log('error: ' + err);
