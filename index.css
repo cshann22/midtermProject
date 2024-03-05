@@ -1,0 +1,137 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td:hover{
+    border-color:white;
+    transform:scale(1.2);
+}
+
+.alkali-metal {
+    background-color: #FFD700;
+}
+
+.alkaline-earth-metal {
+    background-color: #FFA07A;
+}
+
+.transition-metal {
+    background-color: #87CEEB;
+}
+
+.post-transition-metal {
+    background-color: #B0C4DE;
+}
+
+.metalloid {
+    background-color: #98FB98;
+}
+
+.reactive-nonmetal {
+    background-color: #9ACD32;
+}
+
+.diatomic-nonmetal {
+    background-color: #ADFF2F;
+}
+.unknown {
+    background-color: #606060;
+}
+
+.noble-gas {
+    background-color: #D3D3D3;
+}
+
+.lanthanide {
+    background-color: #DDA0DD;
+}
+
+.actinide {
+    background-color: #FF69B4;
+}
+
+
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    margin: 5px;
+    justify-content: center;
+    display: flex;
+}
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+}
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: lightgrey;
+    color: white;
+}
+
+
+#my_form{
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  #element-table {
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+
+  #element-table td {
+    border: 1px solid #aaa;
+    padding: 10px;
+    background-color: #eee;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  #element-table td:hover {
+    background-color: #ffd966; 
+  }
+
+  #info-box {
+    position: static;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: none;
+    float: inline-end;
+  }
+
+.top_area{
+    display: inline;
+}
