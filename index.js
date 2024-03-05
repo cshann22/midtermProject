@@ -36,6 +36,7 @@ function appendTable(data) {
         console.log(tr.innerHTML);
         console.log(extra);
         mainContainer.appendChild(tr);
+        
 
     }
     let tr = document.createElement("tr");
@@ -62,7 +63,6 @@ function appendTable(data) {
     }
     console.log(mainContainer.innerHTML);
 }
-
 
 function getInputValue() {
     let elementName = document.forms["my_form"]["elementName"];
@@ -91,6 +91,36 @@ function getInputValue() {
         }
     }
 }
+
+
+document.getElementById("start").addEventListener("mouseover", function(event) {
+    const target = event.target;
+    if (target.tagName === "TD") {
+      const elementName = target.textContent.trim();
+      fetch("./data.json")
+        .then(response => response.json())
+        .then(myElements => {
+          for (let i = 0; i < myElements.elements.length; i++) {
+            if (myElements.elements[i].symbol === elementName) {
+              showInfoBox(myElements.elements[i]);
+              break;
+            }
+          }
+        });
+    }
+  });
+
+
+  function showInfoBox(data) {
+    const infoBox = document.getElementById('info-box');
+    infoBox.innerHTML = `
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Atomic Number:</strong> ${data.number}</p>
+      <p><strong>Atomic Mass:</strong> ${data.atomic_mass}</p>
+    `;
+    infoBox.style.display = 'block';
+  }
+
 
 
 fetch('./data.json')

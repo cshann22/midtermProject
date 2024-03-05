@@ -4,77 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        
-        th {
-            background-color: #f2f2f2;
-        }
-        
-        .alkali-metal {
-            background-color: #FFD700;
-        }
-        
-        .alkaline-earth-metal {
-            background-color: #FFA07A;
-        }
-        
-        .transition-metal {
-            background-color: #87CEEB;
-        }
-        
-        .post-transition-metal {
-            background-color: #B0C4DE;
-        }
-        
-        .metalloid {
-            background-color: #98FB98;
-        }
-        
-        .reactive-nonmetal {
-            background-color: #9ACD32;
-        }
-        
-        .diatomic-nonmetal {
-            background-color: #ADFF2F;
-        }
-        .unknown {
-            background-color: #606060;
-        }
-        
-        .noble-gas {
-            background-color: #D3D3D3;
-        }
-        
-        .lanthanide {
-            background-color: #DDA0DD;
-        }
-        
-        .actinide {
-            background-color: #FF69B4;
-        }
-    </style>
+
+    <link rel="stylesheet" href="./index.css">
+    
 </head>
 <body>
 
-    <form id="my_form">
-        <p>Element Name: <input type="text" name="elementName" value="Hydrogen"></p>
-        <p>Element Number: <input type="text" name="elementNumber" value="1"></p>
-        <p>Element Mass: <input type="text" name="elementMass" value="1"></p>
-        <button type="button" onclick="getInputValue();">Find Element</button>
-    </form>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+    </div>
+    
+    
+
+    <div class="top_area">
+        <form id="my_form">
+            <p>Element Name: <input type="text" name="elementName" value="Hydrogen"></p>
+            <p>Element Number: <input type="text" name="elementNumber" value="1"></p>
+            <p>Element Mass: <input type="text" name="elementMass" value="1"></p>
+            <button type="button" onclick="getInputValue();">Find Element</button>
+        </form>
+        <div id="info-box"></div>
+        <table id="element-table"></table>
+
+        
+    </div>
+
+    
+
+   
 
     <table id="start">
-        <tr>
+        <tr on>
             <th>1</th>
             <th>2</th>
             <th>3</th>
