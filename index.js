@@ -27,10 +27,9 @@ function appendTable(data) {
                 tr.innerHTML = tr.innerHTML + `<td></td>
                 `;
             }
-            tr.innerHTML = tr.innerHTML + `<td class="${data.elements[i].category}">${data.elements[i].symbol}</td>
+            tr.innerHTML = tr.innerHTML + `<td class="${data.elements[i].category}" id="${data.elements[i].symbol}">${data.elements[i].symbol}</td>
             `;
-            // TODO Seperate out period 6 and 7 group 3 from rest
-
+            
         } while (data.elements[i].group < 18);
 
         console.log(tr.innerHTML);
@@ -61,7 +60,11 @@ function appendTable(data) {
         mainContainer.appendChild(tr);
     }
     console.log(mainContainer.innerHTML);
+
+    
+    
 }
+
 
 
 function getInputValue() {
@@ -92,6 +95,27 @@ function getInputValue() {
     }
 }
 
+// These two functions are broken for some reason
+function loadElementFromClick(click) {
+    var mainContainer = document.getElementById("element");
+    mainContainer.innerHTML = `<br>
+    <h1>Number ${click.number}: ${click.name}</h1> 
+    Mass: ${click.atomic_mass} <br>
+    ${click.summary} <br>
+    <img src="${click.bohr_model_image}" style="width: 160px;" alt="${click.name}"> <br>`;
+}
+
+
+function loadButtons(data) {
+    let buttons = [];
+    for (let i = 0; i < 100; i++) {
+        buttons[i] = document.getElementById(`${data.elements[i].symbol}`);
+        console.log(i);
+        buttons[i].addEventListener("click", clickHandler);
+
+    }
+}
+
 
 fetch('./data.json')
     .then(function (response) {
@@ -99,6 +123,7 @@ fetch('./data.json')
     })
     .then(function (data) {
         appendTable(data);
+//        loadButtons(data);   // Commented because event listener doesn't work
     })
     .catch(function (err) {
         console.log('error: ' + err);
