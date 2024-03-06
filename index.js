@@ -70,7 +70,7 @@ function getInputValue() {
     let elementName = document.forms["my_form"]["elementName"];
     let elementNumber = document.forms["my_form"]["elementNumber"];
     let elementMass = document.forms["my_form"]["elementMass"];
-    let inputElementName = elementName.value;
+    let inputElementName = elementName.value.toLowerCase();
     let inputElementNumber = elementNumber.value;
     let inputElementMass = elementMass.value;
     fetch("./data.json")
@@ -80,7 +80,7 @@ function getInputValue() {
     function loadElement(myElements) {
         var mainContainer = document.getElementById("element");
         for (var i = 0; i<myElements.elements.length; i++){
-            if (myElements.elements[i].name === inputElementName || 
+            if (myElements.elements[i].name.toLowerCase() === inputElementName || 
                 myElements.elements[i].number == inputElementNumber ||
                 (myElements.elements[i].atomic_mass - 1 < inputElementMass && myElements.elements[i].atomic_mass + 1 > inputElementMass)) {
                     mainContainer.innerHTML = `<br>
@@ -94,23 +94,37 @@ function getInputValue() {
     }
 }
 
-// These two functions are broken for some reason
+function listElements() {
+    fetch("./data.json")
+        .then(response => response.json())
+        .then(myElements => loadElement(myElements));
+    
+    function loadElement(myElements) {
+        var mainContainer = document.getElementById("List");
+        for (var i = 0; i<myElements.elements.length; i++){
+            mainContainer.innerHTML += `<br>
+            <h1>Number ${myElements.elements[i].number}: ${myElements.elements[i].name}</h1> 
+            Mass: ${myElements.elements[i].atomic_mass} <br>
+            ${myElements.elements[i].summary} <br>
+            <img src="${myElements.elements[i].bohr_model_image}" style="width: 160px;" alt="${myElements.elements[i].name}"> <br>`;
 
-
+        }
+    }
+}
 
 document.getElementById("start").addEventListener("mouseover", function(event) {
     const target = event.target;
     if (target.tagName === "TD") {
-      const elementName = target.textContent.trim();
-      fetch("./data.json")
+    const elementName = target.textContent.trim();
+    fetch("./data.json")
         .then(response => response.json())
         .then(myElements => {
-          for (let i = 0; i < myElements.elements.length; i++) {
+        for (let i = 0; i < myElements.elements.length; i++) {
             if (myElements.elements[i].symbol === elementName) {
-              showInfoBox(myElements.elements[i]);
-              break;
+                showInfoBox(myElements.elements[i]);
+                break;
             }
-          }
+        }
         });
     }
 });
