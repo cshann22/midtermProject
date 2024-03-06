@@ -113,18 +113,18 @@ document.getElementById("start").addEventListener("mouseover", function(event) {
           }
         });
     }
-  });
+});
 
 
-  function showInfoBox(data) {
+function showInfoBox(data) {
     const infoBox = document.getElementById('info-box');
     infoBox.innerHTML = `
-      <p><strong>Name:</strong> ${data.name}</p>
-      <p><strong>Atomic Number:</strong> ${data.number}</p>
-      <p><strong>Atomic Mass:</strong> ${data.atomic_mass}</p>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Atomic Number:</strong> ${data.number}</p>
+        <p><strong>Atomic Mass:</strong> ${data.atomic_mass}</p>
     `;
     infoBox.style.display = 'block';
-  }
+}
 
 
 
