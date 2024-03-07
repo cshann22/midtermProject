@@ -86,6 +86,7 @@ function getInputValue() {
                     mainContainer.innerHTML = `<br>
                     <h1>Number ${myElements.elements[i].number}: ${myElements.elements[i].name}</h1> 
                     Mass: ${myElements.elements[i].atomic_mass} <br>
+                    Category: ${myElements.elements[i].category.replaceAll("-", " ")} <br>
                     ${myElements.elements[i].summary} <br>
                     <img src="${myElements.elements[i].bohr_model_image}" style="width: 160px;" alt="${myElements.elements[i].name}"> <br>`;
 
