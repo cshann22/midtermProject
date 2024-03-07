@@ -4,7 +4,7 @@ function listElements() {
     inputElementName = inputElementName.replaceAll(" ", "-");
 
     console.log(inputElementName);
-    fetch("./data.json")
+    fetch("../data.json")
         .then(response => response.json())
         .then(myElements => loadElement(myElements));
     
@@ -24,7 +24,7 @@ function listElements() {
     }
 }
 
-fetch('./data.json')
+fetch('../data.json')
     .then(function (response) {
         return response.json();
     })
