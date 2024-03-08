@@ -93,6 +93,7 @@ td:hover{
 
 #my_form{
     display: inline-block;
+    
     padding-bottom: 10px;
 }
 
@@ -124,7 +125,7 @@ body {
     position: static;
     top: 20px;
     left: 20px;
-    width: 200px;
+    width: 225px;
     padding: 10px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -134,4 +135,17 @@ body {
 
 .top_area{
     display: inline;
+}
+
+#category_list {
+    
+    position: static;
+    top: 20px;
+    left: 20px;
+    width: 225px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: none;
+    float: inline-end;
 }
